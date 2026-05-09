@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 340px;
+  margin: 0;
+  padding: 12px;
+  color: #1a1a1a;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+section {
+  margin-bottom: 12px;
+}
+
+.actions {
+  margin: 10px 0;
+}
+
+button {
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #3f51b5;
+  color: #fff;
+}
+
+ul {
+  padding-left: 16px;
+  margin: 4px 0;
+}
+
+li {
+  font-size: 12px;
+  margin-bottom: 4px;
+}

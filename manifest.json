@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tripitaka Reading Companion",
+  "description": "Track Tripitaka.Online reading progress, notes, and streaks locally in your browser.",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "host_permissions": ["https://tripitaka.online/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tripitaka Reading Companion"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tripitaka.online/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
