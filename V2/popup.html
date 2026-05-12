@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tripitaka Reading Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>☸ Reading dashboard</h1>
+      <button class="tab-btn" id="tab-progress" data-tab="progress">Progress</button>
+      <button class="tab-btn" id="tab-review" data-tab="review">Due for review</button>
+      <button class="tab-btn" id="tab-list" data-tab="list">All read</button>
+      <button class="tab-btn" id="tab-settings" data-tab="settings">Settings</button>
+    </header>
+
+    <section id="view-progress" class="view active">
+      <div class="overall-stats">
+        <div class="big-stat">
+          <div class="big-stat-num" id="overall-read">0</div>
+          <div class="big-stat-label">total read</div>
+        </div>
+        <div class="big-stat">
+          <div class="big-stat-num" id="overall-studied">0</div>
+          <div class="big-stat-label">studied</div>
+        </div>
+        <div class="big-stat">
+          <div class="big-stat-num" id="overall-pct">0%</div>
+          <div class="big-stat-label">of canon</div>
+        </div>
+      </div>
+
+      <div class="nikaya-list" id="nikaya-list">
+        <!-- filled by JS -->
+      </div>
+    </section>
+
+    <section id="view-review" class="view">
+      <div id="review-list" class="entry-list">
+        <!-- filled by JS -->
+      </div>
+    </section>
+
+    <section id="view-list" class="view">
+      <input type="search" id="search-input" placeholder="Search title or summary…" class="search-box">
+      <div id="all-list" class="entry-list">
+        <!-- filled by JS -->
+      </div>
+    </section>
+
+    <section id="view-settings" class="view">
+      <div class="settings-block">
+        <h3>AI summary suggestions</h3>
+        <p class="hint">
+          Configure an OpenAI-compatible endpoint to get one-line summary suggestions.
+          You can use OpenAI, an OpenAI-compatible proxy, or a local model.
+          Your key is stored only in this browser.
+        </p>
+        <label>API endpoint</label>
+        <input type="text" id="llm-endpoint" placeholder="https://api.openai.com/v1/chat/completions">
+        <label>API key</label>
+        <input type="password" id="llm-key" placeholder="sk-…">
+        <label>Model</label>
+        <input type="text" id="llm-model" placeholder="gpt-4o-mini">
+        <button id="save-settings" class="btn btn-primary">Save</button>
+        <span id="save-status" class="save-status"></span>
+      </div>
+
+      <div class="settings-block">
+        <h3>Data sync</h3>
+        <p class="hint" id="sync-status">Progress sync is enabled when Chrome Sync is enabled for this browser profile.</p>
+        <p class="hint">Reading progress is stored in Chrome sync. AI API settings stay only on this browser.</p>
+        <button id="export-data" class="btn">Export to JSON</button>
+        <button id="import-data" class="btn">Import from JSON</button>
+        <input type="file" id="import-file" accept="application/json" hidden>
+        <button id="clear-data" class="btn btn-danger">Clear synced data</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

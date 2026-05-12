@@ -1,0 +1,203 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #fff;
+  width: 420px;
+  min-height: 480px;
+}
+
+.container { padding: 0; }
+
+header {
+  padding: 12px 14px 0;
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+header h1 {
+  width: 100%;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b4f9a;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: #666;
+  font-family: inherit;
+}
+.tab-btn:hover { color: #1a1a1a; }
+.tab-btn.active {
+  color: #6b4f9a;
+  border-bottom-color: #6b4f9a;
+}
+
+.view { display: none; padding: 14px; }
+.view.active { display: block; }
+
+.overall-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.big-stat {
+  background: #faf9f5;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+.big-stat-num {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.big-stat-label {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.nikaya-row {
+  margin-bottom: 12px;
+}
+.nikaya-row-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.nikaya-name { font-weight: 500; color: #333; }
+.nikaya-counts { color: #888; font-variant-numeric: tabular-nums; }
+.bar {
+  height: 8px;
+  background: #f0eee8;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+}
+.bar-studied { background: #6b4f9a; }
+.bar-read    { background: #b9a4d6; }
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.entry {
+  padding: 8px 10px;
+  background: #faf9f5;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.entry:hover { border-color: #d8d6cf; }
+.entry-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+.entry-meta {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+.entry-summary {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.entry-status-studied { border-left: 3px solid #1d8f5f; }
+.entry-status-read    { border-left: 3px solid #b07e1a; }
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid #d8d6cf;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.settings-block { margin-bottom: 18px; }
+.settings-block h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.settings-block label {
+  display: block;
+  font-size: 11px;
+  color: #666;
+  margin: 8px 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.settings-block input[type=text],
+.settings-block input[type=password] {
+  width: 100%;
+  padding: 7px 9px;
+  font-size: 12px;
+  border: 1px solid #d8d6cf;
+  border-radius: 6px;
+  font-family: inherit;
+}
+.hint {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.5;
+  margin: 4px 0 6px;
+}
+.btn {
+  background: #fff;
+  border: 1px solid #d8d6cf;
+  padding: 7px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-right: 6px;
+  margin-top: 8px;
+}
+.btn:hover { background: #f5f4ef; }
+.btn-primary {
+  background: #6b4f9a; color: #fff; border-color: #6b4f9a;
+}
+.btn-primary:hover { background: #5a3f88; }
+.btn-danger {
+  color: #b22; border-color: #ecc;
+}
+.btn-danger:hover { background: #fbecec; }
+.save-status { font-size: 11px; color: #1d8f5f; margin-left: 8px; }
+
+@media (prefers-color-scheme: dark) {
+  body { background: #1f1f1f; color: #e5e5e5; }
+  header { border-color: #3d3d3d; }
+  .big-stat, .entry, .nikaya-row { background: #2a2a2a; }
+  .big-stat-num, .entry-title { color: #f0f0f0; }
+  .bar { background: #3d3d3d; }
+  .btn { background: #2a2a2a; color: #e5e5e5; border-color: #3d3d3d; }
+  .settings-block input { background: #2a2a2a; color: #f0f0f0; border-color: #3d3d3d; }
+  .search-box { background: #2a2a2a; color: #f0f0f0; border-color: #3d3d3d; }
+}

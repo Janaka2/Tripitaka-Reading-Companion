@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Tripitaka Reading Tracker",
+  "version": "1.0.0",
+  "description": "Track your sutta reading progress on tripitaka.online with summaries, scroll-detection, and spaced re-reading suggestions.",
+  "permissions": ["storage", "activeTab"],
+ "host_permissions": [
+  "https://tripitaka.online/*",
+  "http://127.0.0.1:1234/*",
+  "http://localhost:1234/*"
+],
+  "content_scripts": [
+    {
+      "matches": ["https://tripitaka.online/*"],
+      "js": ["content.js"],
+      "css": ["sidebar.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tripitaka Tracker — full dashboard",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
